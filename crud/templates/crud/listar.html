@@ -1,11 +1,128 @@
-Listagem
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title> Crud Django</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link rel="stylesheet" href="{% static 'admin/plugins/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'admin/dist/css/adminlte.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="{% static 'assets/css/style3.css' %}" rel="stylesheet">
+</head>
+
+<body class="hold-transition layout-top-nav">
+    
+    <div class="wrapper">
+
+        <nav style="background:#023160;" class="main-header navbar navbar-expand-md navbar-light navbar-white">
+            <div class="container">
+                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">       
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="hjk">
+                            <i style="color:white;" class="fas fa-user"></i>
+                            <span style="color:white;"> Conta </span>
+                        </a>
+                    </li>
+                    <span style="color:white;position:relative;top:5px;"> | </span>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link"  href="../login.html">
+                            <i style="color:white;" class="fas fa-sign-in-alt"></i>
+                            <span style="color:white;">   Sair </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class=""> 
+            <ul>
+                <li class="active"><a href=""><i class="far fa-dot-circle nav-icon"></i> Listar </a></li>
+                <li> <a href=""><i class="far fa-dot-circle nav-icon"></i> Cadastrar </a></li>
+                <li> <a href=""><i class="far fa-dot-circle nav-icon"></i> Editar </a></li>
+            </ul>    
+        </div>
 
 
+        <div class="content-wrapper">
+            <div class="content">
+                
+                <br>
 
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div style="border-left:8px solid #023160;" class="card">
+                                <div class="card-header">
+                                    <h2 style="text-transform: uppercase;font-size:20px;color: #1b88f6;font-weight: 600;"> Listagem </h2>
+                                </div>
+                                <div class="card-body">
+                                    <input class="form-control" id="myInput" type="text" placeholder="Busque por campos visíveis abaixo">
+                                    <br>
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myTable">
+                                            <tr>
+                                                <td> 
+                                                    Departamento Recurso Humano 
+                                                </td>
+                                                <td> 
+                                                    <a class="btn btn-primary btn-sm" title="Editar Grupo" type="button" href="#">
+                                                    <i class="fa fa-edit"></i></a> 
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <hr>
 
+                <div class="card-body">
+                    <a href="" class="button" > <i class="fa fa-plus"> </i> Novo</a>
+                </div>
 
+            </div>
+        
+            <footer style="background:#001225;" class="main-footer">  
+                <p style="text-align:center;color:white;"><strong> Copyright &copy; 2024 <a href=""></p>
+            </footer>
 
+        </div>
+    </div>
 
+    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dist/js/adminlte.min.js' %}"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+    </script>
+
+ </body>
+ </html>
+ 
 
 
 
