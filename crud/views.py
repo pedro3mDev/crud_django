@@ -6,3 +6,5 @@ def index(request):
 def listar(request):
     return render(request, "crud/listar.html")
 
+def cadastrar(request):
+    return render(request, "crud/cadastrar.html")
